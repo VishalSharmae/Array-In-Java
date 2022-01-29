@@ -1,4 +1,10 @@
+import java.util.Arrays;
 import java.util.Scanner;
+
+// An array is a data structure that allows to store multiple values of the same type into a single variable
+
+// default values of a numeric array elements are set to zero.
+
 
 public class SortedArray {
 
@@ -47,5 +53,22 @@ public class SortedArray {
         }
         return sortedArray;
     }
+    public static int[] sortedArrayAgain(int[] array){
+        int[] sortedArray = Arrays.copyOf(array, array.length); // build-in function to copy an array; proper and better method than above
+        int check ;
+        boolean flag = true;
 
+        while(flag) {
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i++){
+                if (sortedArray[i] < sortedArray[i+1]){
+                    check = sortedArray[i];
+                    sortedArray[i] = sortedArray[i+1];
+                    sortedArray[i+1] = check;
+                    flag = true;
+                }
+            }
+        }
+        return sortedArray;
+    }
 }
