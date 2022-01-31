@@ -16,25 +16,51 @@ public class GroceryList {
         }
     }
 
-    public void modifyGroceryItem( int position, String newItem){
+    public void modifyGroceryItem(String existingItem, String newItem){
+        if (findItem(existingItem) >= 0){
+            modifyGroceryItem(findItem(existingItem), newItem);
+        }
+    }
+
+    private void modifyGroceryItem( int position, String newItem){
         groceryList.set(position, newItem);  // .set() method to set the values of pre-existed element
         System.out.println("Grocery Item " + (position + 1) + " has been updated.");
     }
 
-    public void removeGroceryItem(int position){
+    public void removeGroceryItem(String item){
+        int position = findItem(item);
+        if (position >= 0){
+            removeGroceryItem(position);
+        }
+    }
+
+    private void removeGroceryItem(int position){
         String item = groceryList.get(position);
         groceryList.remove(position); // .remove() method to remove the element from the list
         System.out.println("Grocery Item " + (position + 1) +". " + item + " has been deleted.");
     }
 
-    public String findItem(String searchItem){
+    // Removed and edited the code for better programming
+//    public String findItem(String searchItem){
 //        boolean exists = groceryList.contains(searchItem);
+//
+//        int position = groceryList.indexOf(searchItem);
+//        if (position >= 0){
+//            return groceryList.get(position);
+//        }
+//        return null;
+//    }
 
-        int position = groceryList.indexOf(searchItem);
+    private int findItem(String searchItem){
+        return groceryList.indexOf(searchItem);
+    }
+
+    public boolean onRecords(String searchItem){
+        int position = findItem(searchItem);
         if (position >= 0){
-            return groceryList.get(position);
+            return true;
         }
-        return null;
+        return false;
     }
 
 }

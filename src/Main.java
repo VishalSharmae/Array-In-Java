@@ -10,7 +10,7 @@ public class Main {
         printInstructions();
 
         boolean quit =false;
-        int choice = 0;
+        int choice ;
         while (!quit){
             System.out.println("\nEnter your choice: ");
             choice = scanner.nextInt();
@@ -60,28 +60,35 @@ public class Main {
     }
 
     public static void modifyItem(){
-        System.out.println("Please enter the item no.: ");
-        int itemNumber = scanner.nextInt() - 1;
+        System.out.println("Please enter the item name: ");
+        String CurrentItemName = scanner.nextLine();
         scanner.nextLine();
         System.out.println("Please enter replacement item: ");
         String itemName = scanner.nextLine();
-        groceryList.modifyGroceryItem(itemNumber,itemName);
+        groceryList.modifyGroceryItem(CurrentItemName,itemName);
     }
 
     public static void removeItem(){
-        System.out.println("Please enter the item no.: ");
-        int itemNumber = scanner.nextInt() - 1;
+        System.out.println("Please enter the item name: ");
+        String itemName = scanner.nextLine();
         scanner.nextLine();
-        groceryList.removeGroceryItem(itemNumber);
+        groceryList.removeGroceryItem(itemName);
     }
 
     public static void searchForItem(){
-        System.out.println("Please enter Item name: ");
-        String searchItem = scanner.nextLine();
-        if(groceryList.findItem(searchItem) != null ){
-            System.out.println("Found " + searchItem + " in the grocery list");
+//        System.out.println("Please enter Item name: ");
+//        String searchItem = scanner.nextLine();
+//        if(groceryList.findItem(searchItem) != null ){
+//            System.out.println("Found " + searchItem + " in the grocery list");
+//        } else {
+//            System.out.println(searchItem + " is not in the shopping list");
+//        }
+        System.out.println("Please enter item to search for: ");
+        String searchName = scanner.nextLine();
+        if (groceryList.onRecords(searchName)){
+            System.out.println("Found " + searchName);
         } else {
-            System.out.println(searchItem + " is not in the shopping list");
+            System.out.println(searchName + " not on records.");
         }
     }
 }
