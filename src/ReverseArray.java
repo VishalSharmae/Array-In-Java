@@ -18,6 +18,7 @@ public class ReverseArray {
         }
 
         reverse(inputArray);
+
     }
 
     public static void reverse(int[] array){
