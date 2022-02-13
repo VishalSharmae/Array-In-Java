@@ -65,6 +65,7 @@ public class ArrayChallenge {
 
             if (resultArray[lengthOfNum-1] == resultArray[lengthOfNum]){
                 flag = false;
+                // this will end the loop when we will get two same adjacent int values
             }
             num = 0;
             for (int i = 0; i < resultArray.length; i++){
