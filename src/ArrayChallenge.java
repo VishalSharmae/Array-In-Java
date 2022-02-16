@@ -67,7 +67,7 @@ public class ArrayChallenge {
             int[] resultArray = addArray(reverseArray,reverseArray1);
 
             for (int i = 0; i < resultArray.length-1; i++) { // fixed a bug here
-                if (resultArray[i] == resultArray[i+1]) { // checking is their any equal adjacent pairs
+                if (resultArray[i] == resultArray[i+1]) { // checking if any equal adjacent pairs
                     flag = false;
                     // this will end the loop when we will get two same adjacent int values
                 }
