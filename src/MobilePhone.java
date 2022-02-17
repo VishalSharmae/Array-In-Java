@@ -30,6 +30,10 @@ public class MobilePhone {
             System.out.println(existingContact.getName() + ", contact doesn't exist!");
             return false;
         }
+        else if(findContact(newContact.getName()) != -1){ // bug fixed here
+            System.out.println("Contact with name " + newContact.getName() + " already exists!");
+            return false;
+        }
         myContact.set(findContact(existingContact), newContact);
         System.out.println("Contact successfully updated!");
         return true;
